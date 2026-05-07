@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>StudyShare</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <h1>📚 StudyShare</h1>
+
+  <!-- AUTH -->
+  <div id="authSection" class="card">
+    <h2>Login / Signup</h2>
+
+    <form id="authForm">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+
+      <button type="submit">Login</button>
+      <button type="button" id="signupBtn">Signup</button>
+    </form>
+
+    <p id="authMsg"></p>
+  </div>
+
+  <!-- APP -->
+  <div id="appSection" class="hidden">
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <h2>Welcome, <span id="currentUser"></span></h2>
+      <button onclick="logout()">Logout</button>
+    </div>
+
+    <!-- Upload -->
+    <div class="card">
+      <h3>Upload Resource</h3>
+      <input type="text" id="title" placeholder="Title">
+      <input type="text" id="subject" placeholder="Subject">
+      <textarea id="description" placeholder="Description"></textarea>
+      <input type="text" id="link" placeholder="PDF / Drive link">
+      <button onclick="uploadResource()">Upload</button>
+    </div>
+
+    <!-- ONLINE SEARCH -->
+    <div class="card">
+      <h3>🌐 Search & Download Notes</h3>
+      <input type="text" id="searchOnline" placeholder="e.g. data structures notes">
+      <button onclick="searchOnlineNotes()">Search Online</button>
+    </div>
+
+    <!-- LOCAL SEARCH -->
+    <div class="card">
+      <h3>📂 Uploaded Resources</h3>
+
+      <input 
+        type="text" 
+        id="localSearch" 
+        placeholder="Search by subject or keyword..."
+        onkeyup="renderResources()"
+      >
+
+      <div id="resources"></div>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
